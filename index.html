@@ -54,6 +54,21 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .date-nav-day{font-size:15px;font-weight:700;color:var(--text);}
 .date-nav-date{font-size:11px;color:var(--text-dim);margin-top:1px;}
 .past-label{display:inline-block;font-size:10px;background:var(--peach-pale);color:var(--peach);border-radius:10px;padding:1px 7px;margin-top:3px;font-weight:600;}
+.future-label{display:inline-block;font-size:10px;background:var(--lav-pale);color:var(--lavender);border-radius:10px;padding:1px 7px;margin-top:3px;font-weight:600;}
+.streak-badge{font-size:10px;font-weight:700;color:var(--peach);white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:3px;}
+.week-overview-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:12px 0 18px;}
+.week-day-bubble{background:var(--card);border:1px solid var(--border);border-radius:var(--r-xs);padding:8px 4px;text-align:center;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;}
+.week-day-bubble:active{transform:scale(.93);}
+.week-day-bubble.done{background:var(--sage-pale);border-color:rgba(78,168,140,.35);}
+.week-day-bubble.partial{background:var(--lav-pale);border-color:rgba(143,120,192,.3);}
+.week-day-bubble.today{background:var(--rose-pale);border-color:var(--rose);box-shadow:0 0 0 1px var(--rose);}
+.week-day-bubble.future{opacity:.38;}
+.wdb-name{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;}
+.wdb-pct{font-size:12px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;}
+.week-day-bubble.done .wdb-pct{color:var(--sage);}
+.week-day-bubble.partial .wdb-pct{color:var(--lavender);}
+.week-day-bubble.today .wdb-pct{color:var(--rose);}
+.habit-streak-row{display:flex;align-items:center;gap:3px;font-size:10px;font-weight:700;color:var(--peach);white-space:nowrap;flex-shrink:0;}
 
 /* RING */
 .ring-wrap{display:flex;flex-direction:column;align-items:center;padding:12px 0 8px;gap:10px;}
@@ -202,6 +217,42 @@ input[type="time"]::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer;
 .notif-ok{color:var(--sage);}.notif-err{color:var(--peach);}
 .pwa-hint{font-size:12px;color:var(--text-dim);line-height:1.6;margin-top:8px;padding:12px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);}
 
+/* TREINOS */
+.activity-form{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;}
+.activity-form-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.form-row{display:flex;gap:8px;margin-bottom:10px;}
+.form-field{flex:1;display:flex;flex-direction:column;gap:4px;}
+.form-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);}
+.form-input{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);font-size:15px;font-weight:600;padding:9px 11px;width:100%;-webkit-appearance:none;font-variant-numeric:tabular-nums;}
+.form-input:focus{outline:none;border-color:var(--rose);}
+.form-select{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xs);color:var(--text);font-size:14px;font-weight:600;padding:9px 11px;width:100%;-webkit-appearance:none;cursor:pointer;}
+.form-select:focus{outline:none;border-color:var(--rose);}
+.save-activity-btn{width:100%;padding:12px;background:var(--rose);color:white;border:none;border-radius:var(--r-xs);font-size:14px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity .2s;margin-top:4px;}
+.save-activity-btn:active{opacity:.82;}
+.steps-goal-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px;}
+.steps-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.steps-title{font-size:14px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:7px;}
+.steps-count{font-size:13px;font-weight:700;color:var(--rose);}
+.steps-bar-wrap{background:var(--rose-pale);border-radius:8px;height:10px;overflow:hidden;margin-bottom:8px;}
+.steps-bar-fill{height:100%;background:var(--rose);border-radius:8px;transition:width .6s cubic-bezier(.4,0,.2,1);}
+.steps-goal-row{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--text-dim);}
+.steps-input-small{width:80px;font-size:13px;font-weight:700;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 8px;color:var(--text);text-align:center;font-variant-numeric:tabular-nums;}
+.steps-input-small:focus{outline:none;border-color:var(--rose);}
+.week-stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;}
+.week-stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:14px;text-align:center;}
+.week-stat-val{font-size:22px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1;}
+.week-stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);margin-top:4px;}
+.activity-list{display:flex;flex-direction:column;gap:7px;}
+.activity-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:13px 14px;display:flex;align-items:center;gap:12px;}
+.activity-type-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.activity-info{flex:1;min-width:0;}
+.activity-name{font-size:14px;font-weight:700;color:var(--text);}
+.activity-meta{font-size:12px;color:var(--text-mid);margin-top:2px;display:flex;gap:10px;flex-wrap:wrap;}
+.activity-date{font-size:11px;color:var(--text-dim);}
+.activity-del{background:none;border:none;cursor:pointer;color:var(--text-dim);padding:4px;-webkit-tap-highlight-color:transparent;}
+.activity-del:active{color:var(--peach);}
+.type-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:8px;}
+
 /* TAB BAR */
 .tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:flex;padding-bottom:max(10px,env(safe-area-inset-bottom));z-index:100;}
 .tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 0 6px;background:none;border:none;cursor:pointer;color:var(--text-dim);-webkit-tap-highlight-color:transparent;transition:color .2s;}
@@ -282,7 +333,9 @@ input[type="time"]::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer;
 <!-- ═══ SEMANA ═══ -->
 <section class="tab-content" id="tab-semana">
   <div style="padding-top:16px;">
-    <div class="section-lbl" style="margin-top:0;">Esta semana</div>
+    <div class="section-lbl" style="margin-top:0;">Resumo da semana</div>
+    <div class="week-overview-grid" id="week-overview"></div>
+    <div class="section-lbl" style="margin-top:0;">Metas semanais</div>
     <div class="week-bar"><div class="week-bar-fill" id="week-fill" style="width:0%"></div></div>
     <div class="habit-list" id="weekly-list"></div>
     <div class="lema-card" style="margin-top:22px;">
@@ -453,6 +506,91 @@ input[type="time"]::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer;
   </div>
 </section>
 
+<!-- ═══ TREINOS ═══ -->
+<section class="tab-content" id="tab-treinos">
+  <div style="padding-top:16px;">
+
+    <!-- Meta de passos do dia -->
+    <div class="steps-goal-card">
+      <div class="steps-header">
+        <div class="steps-title">
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="var(--rose)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c0-1 .7-1.5 1.5-1.5S11 2 11 3l-1 4h3l-4 10-1-6H5l3-8z"/></svg>
+          Passos hoje
+        </div>
+        <div class="steps-count" id="steps-today-count">0 passos</div>
+      </div>
+      <div class="steps-bar-wrap"><div class="steps-bar-fill" id="steps-bar" style="width:0%"></div></div>
+      <div class="steps-goal-row">
+        <span>Meta diária:</span>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <input class="steps-input-small" type="number" id="steps-goal-input" min="1000" max="50000" step="500"
+            value="10000" onchange="saveStepGoal()" inputmode="numeric">
+          <span style="font-size:11px;">passos</span>
+        </div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center;">
+        <input class="form-input" type="number" id="steps-today-input" placeholder="Passos de hoje" min="0" max="99999" inputmode="numeric" style="font-size:14px;padding:8px 11px;">
+        <button onclick="saveTodaySteps()" style="padding:8px 16px;background:var(--rose);color:white;border:none;border-radius:var(--r-xs);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent;">Salvar</button>
+      </div>
+    </div>
+
+    <!-- Stats da semana -->
+    <div class="section-lbl">Esta semana</div>
+    <div class="week-stats-grid" id="week-stats-grid">
+      <div class="week-stat-card"><div class="week-stat-val" id="wst-km">0</div><div class="week-stat-lbl">km rodados</div></div>
+      <div class="week-stat-card"><div class="week-stat-val" id="wst-steps">0</div><div class="week-stat-lbl">passos totais</div></div>
+      <div class="week-stat-card"><div class="week-stat-val" id="wst-time">0min</div><div class="week-stat-lbl">tempo ativo</div></div>
+      <div class="week-stat-card"><div class="week-stat-val" id="wst-acts">0</div><div class="week-stat-lbl">treinos</div></div>
+    </div>
+
+    <!-- Registrar atividade -->
+    <div class="section-lbl">Registrar treino</div>
+    <div class="activity-form">
+      <div class="form-row">
+        <div class="form-field" style="flex:2;">
+          <label class="form-label">Tipo de treino</label>
+          <select class="form-select" id="act-type">
+            <option value="corrida">🏃 Corrida</option>
+            <option value="caminhada">🚶 Caminhada</option>
+            <option value="boxe">🥊 Boxe</option>
+            <option value="academia">🏋️ Academia</option>
+            <option value="bike">🚴 Bike</option>
+            <option value="natacao">🏊 Natação</option>
+            <option value="outro">⭐ Outro</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Data</label>
+          <input class="form-input" type="date" id="act-date" style="font-size:13px;padding:9px 8px;">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Duração (min)</label>
+          <input class="form-input" type="number" id="act-duration" placeholder="45" min="1" max="600" inputmode="numeric">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Distância (km)</label>
+          <input class="form-input" type="number" id="act-distance" placeholder="5.0" min="0" step="0.1" inputmode="decimal">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Passos</label>
+          <input class="form-input" type="number" id="act-steps" placeholder="6000" min="0" inputmode="numeric">
+        </div>
+      </div>
+      <input class="form-input" type="text" id="act-notes" placeholder="Observações (opcional)" style="margin-bottom:10px;">
+      <button class="save-activity-btn" onclick="saveActivity()">Salvar treino</button>
+    </div>
+
+    <!-- Histórico -->
+    <div class="section-lbl">Histórico</div>
+    <div class="activity-list" id="activity-list">
+      <div style="text-align:center;padding:20px;font-size:13px;color:var(--text-dim);">Nenhum treino registrado ainda.</div>
+    </div>
+    <div style="height:16px;"></div>
+  </div>
+</section>
+
 <nav class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('hoje',this)" aria-label="Hoje">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="9,16 11,18 15,14"/></svg>
@@ -465,6 +603,10 @@ input[type="time"]::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer;
   <button class="tab-btn" onclick="switchTab('meta',this)" aria-label="Meta">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg>
     <span class="tab-lbl">Meta</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('treinos',this)" aria-label="Treinos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/><path d="M7.5 17l2-6 2.5 2 2-3.5"/><path d="M17 14l-2 5"/><path d="M5 20h14"/></svg>
+    <span class="tab-lbl">Treinos</span>
   </button>
   <button class="tab-btn" onclick="switchTab('alarme',this)" aria-label="Alarmes">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -546,7 +688,7 @@ function entryVal(e){return typeof e==='object'?e.val:e;}
 function entryPhoto(e){return typeof e==='object'?e.photo:null;}
 
 // ── TABS ──────────────────────────────────────────────────────────
-const TITLES={hoje:'Hoje',semana:'Esta Semana',meta:'Minha Meta',alarme:'Alarmes'};
+const TITLES={hoje:'Hoje',semana:'Esta Semana',meta:'Minha Meta',treinos:'Treinos',alarme:'Alarmes'};
 function switchTab(id,btn){
   document.querySelectorAll('.tab-content').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -554,6 +696,12 @@ function switchTab(id,btn){
   btn.classList.add('active');
   document.getElementById('page-title').textContent=TITLES[id];
   if(id==='meta'){renderCal();renderWeightSection();}
+  if(id==='semana'){renderWeekly();renderWeekOverview();}
+  if(id==='treinos'){renderActivityTab();}
+}
+function switchTabById(id){
+  const btn=document.querySelector(`.tab-btn[onclick*="'${id}'"]`);
+  if(btn)switchTab(id,btn);
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
@@ -564,26 +712,31 @@ const PT_DAYS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado']
 const PT_MON =['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 function changeDay(delta){
   const next=offsetStr(currentDateStr,delta);
-  const today=todayStr(),start=getStartDate();
-  // before july: navigate freely between start and today
-  const floor=start<today?start:today;
-  if(next>today||next<floor)return;
+  const start=getStartDate();
+  const end=offsetStr(start,29);
+  const floor=start;
+  if(next>end||next<floor)return;
   currentDateStr=next;
   renderDateNav();renderDailyList();renderWater();updateRing();
 }
 function renderDateNav(){
   const today=todayStr(),start=getStartDate();
+  const end=offsetStr(start,29);
   const d=new Date(currentDateStr+'T00:00:00');
   const isToday=currentDateStr===today;
+  const isFuture=currentDateStr>today;
   document.getElementById('nav-day-label').textContent=isToday?'Hoje':PT_DAYS[d.getDay()];
   document.getElementById('nav-date-str').textContent=d.getDate()+' de '+PT_MON[d.getMonth()];
-  document.getElementById('nav-past-badge').innerHTML=isToday?'':'<span class="past-label">dia passado</span>';
-  const floor=start<today?start:today;
-  document.getElementById('btn-prev').disabled=currentDateStr<=floor;
-  document.getElementById('btn-next').disabled=currentDateStr>=today;
-  document.getElementById('ring-wrap').style.display=isToday?'flex':'none';
-  document.getElementById('water-section').style.display=isToday?'block':'none';
-  document.getElementById('daily-section-lbl').textContent=isToday?'Checklist do dia':'Checklist — '+d.getDate()+'/'+(d.getMonth()+1);
+  let badge='';
+  if(!isToday&&!isFuture)badge='<span class="past-label">dia passado</span>';
+  if(isFuture)badge='<span class="future-label">próximo dia</span>';
+  document.getElementById('nav-past-badge').innerHTML=badge;
+  document.getElementById('btn-prev').disabled=currentDateStr<=start;
+  document.getElementById('btn-next').disabled=currentDateStr>=end;
+  document.getElementById('ring-wrap').style.display='flex';
+  document.getElementById('water-section').style.display='block';
+  const lbl=isToday?'Checklist do dia':isFuture?'Prévia — '+d.getDate()+'/'+(d.getMonth()+1):'Checklist — '+d.getDate()+'/'+(d.getMonth()+1);
+  document.getElementById('daily-section-lbl').textContent=lbl;
 }
 
 // ── DAILY ─────────────────────────────────────────────────────────
@@ -601,16 +754,19 @@ function habitsForDate(ds){
 function renderDailyList(){
   const state=getDailyState(currentDateStr);
   const habits=habitsForDate(currentDateStr);
+  const today=todayStr();
   document.getElementById('daily-list').innerHTML=habits.map(h=>{
     const done=!!state[h.id];
     const cls='habit-row'+(done?' done':'')+(h._optional?' optional':'');
     const tag=h.tag?`<span class="habit-tag ${h.tagClass}">${h.tag}</span>`:'';
+    const streak=currentDateStr<=today?habitStreak(h.id,currentDateStr):0;
+    const streakBadge=streak>=2?`<span class="habit-streak-row"><svg width="11" height="11" viewBox="0 0 20 20" fill="var(--peach)" stroke="none"><path d="M10 2c-1 3-4 5-4 9a4 4 0 0 0 8 0c0-4-3-6-4-9z"/></svg>${streak}</span>`:'';
     return `<div class="${cls}" id="h-${h.id}"
       onclick="toggleDaily('${h.id}')" role="checkbox" aria-checked="${done}" tabindex="0"
       onkeydown="if(event.key===' '){event.preventDefault();toggleDaily('${h.id}')}">
       <div class="habit-icon">${ICONS[h.icon]}</div>
       <div class="habit-name">${h.name}</div>
-      ${tag}
+      ${tag}${streakBadge}
       <div class="check-circle" aria-hidden="true">
         <svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1.5 4.5L4.5 7.5L10.5 1.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
@@ -643,6 +799,25 @@ function updateRing(){
   document.getElementById('ring-fill').style.strokeDasharray=circ.toFixed(1);
   document.getElementById('ring-fill').style.strokeDashoffset=(circ*(1-pct/100)).toFixed(1);
   document.getElementById('ring-pct').textContent=pct+'%';
+}
+
+// ── HABIT STREAK (individual) ────────────────────────────────────
+function habitStreak(id, upToDate){
+  let streak=0;
+  const start=getStartDate();
+  let d=new Date(upToDate+'T00:00:00');
+  d.setDate(d.getDate()-1); // start from yesterday (today may be incomplete)
+  for(let safety=0;safety<60;safety++){
+    const ds=p4(d.getFullYear())+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+    if(ds<start)break;
+    const habits=habitsForDate(ds);
+    const h=habits.find(x=>x.id===id);
+    if(!h||h._optional){d.setDate(d.getDate()-1);continue;}
+    const state=getDailyState(ds);
+    if(state[id]){streak++;d.setDate(d.getDate()-1);}
+    else break;
+  }
+  return streak;
 }
 
 // ── STREAK ────────────────────────────────────────────────────────
@@ -863,6 +1038,154 @@ function drawWeightChart(entries){
   [[0,entries[0][0]],[entries.length-1,entries[entries.length-1][0]]].forEach(([i,ds])=>{const d=new Date(ds+'T00:00:00');ctx.fillText(d.getDate()+'/'+(d.getMonth()+1),xOf(i),H-pad.b+13);});
 }
 
+// ── WEEK OVERVIEW (semana tab) ────────────────────────────────────
+function renderWeekOverview(){
+  const today=todayStr(),start=getStartDate(),end=offsetStr(start,29);
+  const now=new Date(today+'T00:00:00');
+  const mondayOff=(now.getDay()+6)%7;
+  const NAMES=['Seg','Ter','Qua','Qui','Sex','Sáb','Dom'];
+  const days=Array.from({length:7},(_,i)=>{
+    const d=new Date(now);d.setDate(now.getDate()-mondayOff+i);
+    return {ds:p4(d.getFullYear())+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate()),name:NAMES[i]};
+  });
+  document.getElementById('week-overview').innerHTML=days.map(({ds,name})=>{
+    const isFuture=ds>today,isToday=ds===today;
+    const inChallenge=ds>=start&&ds<=end;
+    let pct=0;
+    if(!isFuture&&inChallenge){
+      const state=getDailyState(ds),habits=habitsForDate(ds).filter(h=>!h._optional);
+      pct=habits.length?Math.round(habits.filter(h=>state[h.id]).length/habits.length*100):0;
+    }
+    let cls='week-day-bubble';
+    if(isToday)cls+=' today';
+    else if(isFuture||!inChallenge)cls+=' future';
+    else if(pct>=80)cls+=' done';
+    else if(pct>0)cls+=' partial';
+    const pctLabel=isFuture||!inChallenge?'–':pct+'%';
+    return `<div class="${cls}" onclick="jumpToDay('${ds}')"><div class="wdb-name">${name}</div><div class="wdb-pct">${pctLabel}</div></div>`;
+  }).join('');
+}
+function jumpToDay(ds){currentDateStr=ds;switchTabById('hoje');renderDateNav();renderDailyList();renderWater();updateRing();}
+
+// ── TREINOS ───────────────────────────────────────────────────────
+const K_ACTIVITIES='mvv_acts';
+const K_STEP_GOAL='mvv_step_goal';
+const K_STEPS_DAY=d=>'mvv_steps_'+d;
+
+const ACT_TYPES={
+  corrida:{label:'Corrida',color:'var(--rose)',bg:'var(--rose-pale)'},
+  caminhada:{label:'Caminhada',color:'var(--sage)',bg:'var(--sage-pale)'},
+  boxe:{label:'Boxe',color:'var(--peach)',bg:'var(--peach-pale)'},
+  academia:{label:'Academia',color:'var(--lavender)',bg:'var(--lav-pale)'},
+  bike:{label:'Bike',color:'var(--blue)',bg:'var(--blue-pale)'},
+  natacao:{label:'Natação',color:'var(--blue)',bg:'var(--blue-pale)'},
+  outro:{label:'Outro',color:'var(--text-mid)',bg:'var(--border)'},
+};
+
+function getActivities(){try{return JSON.parse(localStorage.getItem(K_ACTIVITIES)||'[]');}catch{return [];}}
+function putActivities(a){localStorage.setItem(K_ACTIVITIES,JSON.stringify(a));}
+function getStepGoal(){return parseInt(localStorage.getItem(K_STEP_GOAL)||'10000',10);}
+function saveStepGoal(){const v=parseInt(document.getElementById('steps-goal-input').value,10);if(!isNaN(v)&&v>0){localStorage.setItem(K_STEP_GOAL,v);}renderStepsToday();}
+function getTodaySteps(){return parseInt(localStorage.getItem(K_STEPS_DAY(todayStr()))||'0',10);}
+function saveTodaySteps(){
+  const v=parseInt(document.getElementById('steps-today-input').value,10);
+  if(isNaN(v)||v<0){showToast('Insira um número válido');return;}
+  localStorage.setItem(K_STEPS_DAY(todayStr()),v);
+  document.getElementById('steps-today-input').value='';
+  renderStepsToday();renderWeekActivityStats();showToast('Passos salvos!');
+}
+
+function renderStepsToday(){
+  const steps=getTodaySteps(),goal=getStepGoal();
+  const pct=Math.min(steps/goal*100,100);
+  document.getElementById('steps-today-count').textContent=steps.toLocaleString('pt-BR')+' passos';
+  document.getElementById('steps-bar').style.width=pct+'%';
+  document.getElementById('steps-goal-input').value=goal;
+}
+
+function saveActivity(){
+  const type=document.getElementById('act-type').value;
+  const date=document.getElementById('act-date').value||todayStr();
+  const duration=parseInt(document.getElementById('act-duration').value)||0;
+  const distance=parseFloat(document.getElementById('act-distance').value)||0;
+  const steps=parseInt(document.getElementById('act-steps').value)||0;
+  const notes=document.getElementById('act-notes').value.trim();
+  if(!duration&&!distance&&!steps){showToast('Preencha pelo menos um campo');return;}
+  const acts=getActivities();
+  acts.push({id:Date.now(),date,type,duration,distance,steps,notes});
+  putActivities(acts);
+  document.getElementById('act-duration').value='';
+  document.getElementById('act-distance').value='';
+  document.getElementById('act-steps').value='';
+  document.getElementById('act-notes').value='';
+  renderActivityTab();showToast('Treino salvo!');
+}
+
+function deleteActivity(id){
+  const acts=getActivities().filter(a=>a.id!==id);
+  putActivities(acts);renderActivityTab();
+}
+
+function fmtDuration(min){if(!min)return '';if(min<60)return min+'min';return Math.floor(min/60)+'h'+(min%60?(''+min%60).padStart(2,'0'):'');}
+
+function renderWeekActivityStats(){
+  const today=todayStr();
+  const now=new Date(today+'T00:00:00');
+  const mondayOff=(now.getDay()+6)%7;
+  const weekStart=new Date(now);weekStart.setDate(now.getDate()-mondayOff);
+  const ws=p4(weekStart.getFullYear())+'-'+p2(weekStart.getMonth()+1)+'-'+p2(weekStart.getDate());
+  const acts=getActivities().filter(a=>a.date>=ws&&a.date<=today);
+  const totalKm=acts.reduce((s,a)=>s+a.distance,0);
+  const totalTime=acts.reduce((s,a)=>s+a.duration,0);
+  const totalSteps=Array.from({length:7},(_,i)=>{
+    const d=new Date(weekStart);d.setDate(weekStart.getDate()+i);
+    const ds=p4(d.getFullYear())+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+    return parseInt(localStorage.getItem(K_STEPS_DAY(ds))||'0',10);
+  }).reduce((s,v)=>s+v,0)+acts.reduce((s,a)=>s+a.steps,0);
+  document.getElementById('wst-km').textContent=totalKm.toFixed(1);
+  document.getElementById('wst-steps').textContent=totalSteps>999?(totalSteps/1000).toFixed(1)+'k':totalSteps;
+  document.getElementById('wst-time').textContent=fmtDuration(totalTime)||'0min';
+  document.getElementById('wst-acts').textContent=acts.length;
+}
+
+function renderActivityList(){
+  const acts=[...getActivities()].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);
+  const el=document.getElementById('activity-list');
+  if(!acts.length){el.innerHTML='<div style="text-align:center;padding:20px;font-size:13px;color:var(--text-dim);">Nenhum treino registrado ainda.</div>';return;}
+  el.innerHTML=acts.map(a=>{
+    const t=ACT_TYPES[a.type]||ACT_TYPES.outro;
+    const d=new Date(a.date+'T00:00:00');
+    const dateLabel=a.date===todayStr()?'Hoje':d.getDate()+' '+PT_MON[d.getMonth()];
+    const meta=[];
+    if(a.duration)meta.push(fmtDuration(a.duration));
+    if(a.distance)meta.push(a.distance.toFixed(1)+' km');
+    if(a.steps)meta.push(a.steps.toLocaleString('pt-BR')+' passos');
+    if(a.notes)meta.push(a.notes);
+    return `<div class="activity-item">
+      <div class="activity-type-icon" style="background:${t.bg};color:${t.color};">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/><path d="M7.5 17l2-6 2.5 2 2-3.5"/><path d="M17 14l-2 5"/><path d="M5 20h14"/></svg>
+      </div>
+      <div class="activity-info">
+        <div class="activity-name">${t.label}</div>
+        <div class="activity-meta">${meta.join(' · ')}</div>
+        <div class="activity-date">${dateLabel}</div>
+      </div>
+      <button class="activity-del" onclick="deleteActivity(${a.id})" aria-label="Apagar treino">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 16,6"/><path d="M8 6V4h4v2"/><path d="M5 6l1 12h8l1-12"/></svg>
+      </button>
+    </div>`;
+  }).join('');
+}
+
+function renderActivityTab(){
+  renderStepsToday();
+  renderWeekActivityStats();
+  renderActivityList();
+  // Set today's date in form
+  const dateInput=document.getElementById('act-date');
+  if(!dateInput.value)dateInput.value=todayStr();
+}
+
 // ── ALARMS ────────────────────────────────────────────────────────
 const ALARM_MSG={
   morning:{title:'Bom dia!',body:'Hora de marcar seus hábitos de hoje. Você consegue!'},
@@ -944,13 +1267,13 @@ function updateNotifUI(perm){
 function init(){
   currentDateStr=todayStr();
   updateHeader();renderDateNav();renderDailyList();updateRing();calcStreak();
-  renderWater();renderWeekly();renderCal();renderWeightSection();loadAlarms();
+  renderWater();renderWeekly();renderWeekOverview();renderCal();renderWeightSection();
+  renderActivityTab();loadAlarms();
   if('Notification' in window)updateNotifUI(Notification.permission);
   else{document.getElementById('notif-box').style.display='block';document.querySelector('#notif-box .allow-btn').style.display='none';}
-  // midnight reset
   const now=new Date();
   const ms=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,5)-now;
-  setTimeout(()=>{currentDateStr=todayStr();updateHeader();renderDateNav();renderDailyList();updateRing();calcStreak();renderWater();},ms);
+  setTimeout(()=>{currentDateStr=todayStr();updateHeader();renderDateNav();renderDailyList();updateRing();calcStreak();renderWater();renderWeekOverview();renderActivityTab();},ms);
 }
 init();
 
