@@ -1144,7 +1144,15 @@ function renameProfile(id,name){const profiles=getProfiles(),p=profiles.find(x=>
 function setProfileTheme(id,theme){
   const profiles=getProfiles(),p=profiles.find(x=>x.id===id);
   if(!p)return;p.theme=theme;p.color=THEMES[theme].accent;putProfiles(profiles);
-  if(id===getActiveId())applyTheme(theme);renderProfileAvatar();renderProfileModal();
+  if(id===getActiveId())applyTheme(theme);
+  renderProfileAvatar();
+  // atualiza só os botões de tema sem re-renderizar o modal inteiro
+  document.querySelectorAll('[data-theme-btn]').forEach(btn=>{
+    const k=btn.getAttribute('data-theme-btn');
+    const t=THEMES[k];
+    btn.style.border='3px solid '+(k===theme?'white':'transparent');
+    btn.style.outline='3px solid '+(k===theme?t.accent:'transparent');
+  });
 }
 function _profileDisplay(p){
   if(p.photo)return '';
@@ -1194,13 +1202,18 @@ function renderProfileModal(){
       <!-- Nome -->
       <div style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:10px;">
         <div style="font-size:10px;font-weight:700;color:var(--text-dim);letter-spacing:0.08em;margin-bottom:5px;">NOME</div>
-        <input value="${me.name}" onchange="renameProfile('${me.id}',this.value);renderProfileAvatar();" style="border:none;outline:none;background:transparent;font-size:15px;font-weight:600;color:var(--text);width:100%;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input id="my-name-input" type="text" value="${me.name}" oninput="renameProfile('${me.id}',this.value);renderProfileAvatar();" style="border:none;outline:none;background:transparent;font-size:15px;font-weight:600;color:var(--text);flex:1;min-width:0;">
+          <button onclick="document.getElementById('my-name-input').focus()" style="background:none;border:none;cursor:pointer;color:var(--text-dim);padding:2px;display:flex;align-items:center;">
+            <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 3l3 3L7 16l-4 1 1-4L14 3z"/></svg>
+          </button>
+        </div>
       </div>
       <!-- Tema -->
       <div style="width:100%;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:10px;">
         <div style="font-size:10px;font-weight:700;color:var(--text-dim);letter-spacing:0.08em;margin-bottom:10px;">COR DO TEMA</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          ${Object.entries(THEMES).map(([k,t])=>`<button onclick="setProfileTheme('${me.id}','${k}')" title="${t.name}" style="width:28px;height:28px;border-radius:50%;background:${t.accent};border:3px solid ${me.theme===k?'white':'transparent'};outline:3px solid ${me.theme===k?t.accent:'transparent'};cursor:pointer;padding:0;transition:all .2s;"></button>`).join('')}
+          ${Object.entries(THEMES).map(([k,t])=>`<button data-theme-btn="${k}" onclick="setProfileTheme('${me.id}','${k}')" title="${t.name}" style="width:28px;height:28px;border-radius:50%;background:${t.accent};border:3px solid ${me.theme===k?'white':'transparent'};outline:3px solid ${me.theme===k?t.accent:'transparent'};cursor:pointer;padding:0;transition:all .2s;"></button>`).join('')}
         </div>
       </div>
       <!-- Senha -->
