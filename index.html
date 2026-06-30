@@ -699,7 +699,18 @@ input[type="time"]::-webkit-calendar-picker-indicator{opacity:.4;cursor:pointer;
       <div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:220px;margin:0 auto;">
-      ${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(n=>n===''?'<div></div>':`<button class="pin-key" onclick="${n==='⌫'?'pinDel()':'pinPress('+n+')'}">${n}</button>`).join('')}
+      <button class="pin-key" onclick="pinPress(1)">1</button>
+      <button class="pin-key" onclick="pinPress(2)">2</button>
+      <button class="pin-key" onclick="pinPress(3)">3</button>
+      <button class="pin-key" onclick="pinPress(4)">4</button>
+      <button class="pin-key" onclick="pinPress(5)">5</button>
+      <button class="pin-key" onclick="pinPress(6)">6</button>
+      <button class="pin-key" onclick="pinPress(7)">7</button>
+      <button class="pin-key" onclick="pinPress(8)">8</button>
+      <button class="pin-key" onclick="pinPress(9)">9</button>
+      <div></div>
+      <button class="pin-key" onclick="pinPress(0)">0</button>
+      <button class="pin-key" onclick="pinDel()">⌫</button>
     </div>
     <button onclick="closePinModal()" style="margin-top:18px;background:none;border:none;color:var(--text-dim);font-size:13px;cursor:pointer;">Cancelar</button>
   </div>
