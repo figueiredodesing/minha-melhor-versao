@@ -2214,7 +2214,7 @@ function forceUpdate(){
       Promise.all(regs.map(r=>r.unregister())).then(()=>{
         caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).then(()=>{
           showToast('Atualizando...');
-          setTimeout(()=>location.reload(true),800);
+          setTimeout(()=>location.href=location.pathname+'?v='+Date.now(),800);
         });
       });
     });
