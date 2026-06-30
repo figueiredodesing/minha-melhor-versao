@@ -1,7 +1,7 @@
 {
-  "name": "Minha Melhor Versão",
-  "short_name": "30 Dias",
-  "description": "Desafio 30 dias — checklist de hábitos pessoais",
+  "name": "Evolua",
+  "short_name": "Evolua",
+  "description": "Desafio de hábitos pessoais — Evolua",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#FEF2F6",
