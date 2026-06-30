@@ -1222,7 +1222,6 @@ function renderCal(){
   const months=Math.ceil(dur/30);
   const durLabel=months===1?`${dur} dias`:months===2?'2 meses':months===3?'3 meses':`${months} meses`;
   document.getElementById('cal-section-lbl').textContent=`Progresso — ${durLabel}`;
-  const months=Math.ceil(dur/30);
   if(months===1){
     container.innerHTML=`<div class="cal-grid">${Array.from({length:dur},(_,i)=>calDayHtml(offsetStr(start,i),i+1)).join('')}</div>`;
     return;
