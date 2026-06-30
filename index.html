@@ -1004,7 +1004,7 @@ function addProfile(){
   const themeKeys=Object.keys(THEMES);
   const theme=themeKeys[profiles.length%themeKeys.length];
   const color=THEMES[theme].accent;
-  profiles.push({id,name:'Novo perfil',color,theme,avatar:AVATARS[profiles.length%AVATARS.length]});
+  profiles.push({id,name:'Novo perfil',color,theme,avatar:AVATAR_OPTIONS[profiles.length%AVATAR_OPTIONS.length].key});
   putProfiles(profiles);renderProfileModal();
 }
 function deleteProfile(id){
